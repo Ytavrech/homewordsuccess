@@ -1,0 +1,12 @@
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+<ul>
+
+<% if current_user.present? %>
+ <li><%= link_to "Edit", edit_article_path(@article) %></li>
+<% end %>
+</ul>
+
+<%= render 'comments/form' %>
+
