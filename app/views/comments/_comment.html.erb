@@ -1,0 +1,15 @@
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>
+<% if current_user.present? %>
+<p>
+    <%#debugger%>
+    <li><%= link_to "Edit Comments", edit_article_comment_path(@article.comments) %></li>
+</p> 
+<%end%>

@@ -4,24 +4,19 @@ class CommentsController < ApplicationController
     @comment = @article.comments.create(comment_params)
     redirect_to article_path(@article)
   end
-
-  def show
-    @article = Article.find(params[:id])
-    @comment = @article.comments.build
-  end
-
+  
   def edit
+    @article = Article.find(params[:id])
     @comment = Comment.find(params[:id])
-    @article = Article.find(params[:article_id])
   end
 
   def update
-
-    @article = Article.find(params[:id])
+    debugger
+    # @article = Article.find(params[:id])
 
     @comment = Comment.find(params[:id])
-    @comment.update_attributes(params[:comment])
-    if @article.update(article_params)
+    @comment.update(params[:comment])
+    if @comment.update(comment_params)
         redirect_to @article
     else
       render :edit
