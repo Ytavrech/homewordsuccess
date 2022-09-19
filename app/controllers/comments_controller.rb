@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def create
+    # binding.pry
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
     redirect_to article_path(@article)
@@ -11,7 +12,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    debugger
+    # debugger
     # @article = Article.find(params[:id])
 
     @comment = Comment.find(params[:id])
