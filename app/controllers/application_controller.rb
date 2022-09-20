@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-    http_basic_authenticate_with :name => "ytavrech@gmail.com", :password => "12345"
-
+  
     # def admin_controller?
     #   self.class < ActiveAdmin::BaseController
     # end
@@ -23,5 +22,9 @@ class ApplicationController < ActionController::Base
         #   User ||= authenticate_or_request_with_http_basic do |u, p|
         #     User.find(email: u, password: p)
         #   end
-
+        # before_action :authenticate_user!
+        # def index
+        # @user = current_user.email
+        # end
+     
 end

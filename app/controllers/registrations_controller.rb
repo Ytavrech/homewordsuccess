@@ -1,4 +1,7 @@
 class RegistrationsController < ApplicationController
+
+
+  # before_filter :authenticate, :only => [ :new, :create ]
   def new
     @user = User.new
   end
@@ -42,4 +45,7 @@ class RegistrationsController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
+
+
 end
+

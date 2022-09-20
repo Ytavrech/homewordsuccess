@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  # USER_ID, PASSWORD = "user.email", "user.password"
+  # before_filter :authenticate, :only => [ :new, :create ]
+
   def new; end
 
   def create
@@ -38,4 +41,10 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path, notice: "Logged Out"
   end
+  # private
+  # def authenticate
+  #    authenticate_or_request_with_http_basic do |id, password| 
+  #       id == USER_ID && password == PASSWORD
+  #    end
+  # end
 end

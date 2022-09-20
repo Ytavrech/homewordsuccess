@@ -11,9 +11,19 @@
   </head>
 
   <body>
+
+
+  <%# <% if current_user.present? %>
+  <%#= current_user&.email %>
+  <%# end %> %>
+<div id=”user_nav”>
   <% if current_user.present? %>
-  <%= current_user&.email %>
+  Signed in as <%= current_user.email %>. This cannot be cheese?
+  <%= link_to 'Sign out', logout_path, :method => :delete %>
+  <% else %>
+  <%= link_to 'Register', sign_up_path %> or <%= link_to 'Sign in', log_in_path %>
   <% end %>
+
     <%= yield %>
   </body>
 </html>
